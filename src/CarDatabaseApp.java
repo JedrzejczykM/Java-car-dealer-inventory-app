@@ -11,7 +11,7 @@ public class CarDatabaseApp extends JFrame {
     private JTextArea outputArea;
     private JTextField brandField;
     private JButton searchButton;
-    private void addCarManually() {
+    public void addCarManually() {
         String brand = JOptionPane.showInputDialog("Podaj markę samochodu:");
         String model = JOptionPane.showInputDialog("Podaj model samochodu:");
         String yearStr = JOptionPane.showInputDialog("Podaj rok produkcji samochodu:");
@@ -25,7 +25,14 @@ public class CarDatabaseApp extends JFrame {
     public CarDatabaseApp() {
         super("Baza Danych Samochodów");
         database = new CarDatabase("C:\\Users\\Michał\\Desktop\\STUDIA\\4 SEM\\PROO\\projekt\\CarDataBase\\src\\database.txt");
-        database.loadFromFile();
+        Runnable runnable1 = new Runnable() {
+            @Override
+            public void run() {
+                database.loadFromFile();
+            }
+        };
+        Thread thread1 = new Thread(runnable1);
+        thread1.start();
 
         // Utworzenie interfejsu użytkownika
         outputArea = new JTextArea(10, 30);
@@ -50,7 +57,14 @@ public class CarDatabaseApp extends JFrame {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addCarManually();
+                Runnable runnable2 = new Runnable() {
+                    @Override
+                    public void run() {
+                        addCarManually();
+                    }
+                };
+                Thread thread2 = new Thread(runnable2);
+                thread2.start();
             }
         });
         inputPanel.add(addButton);
@@ -73,7 +87,21 @@ public class CarDatabaseApp extends JFrame {
         setVisible(true);
 
         // Wczytanie bazy danych z pliku
-        database.loadFromFile();
+        Runnable runnable3 = new Runnable() {
+            @Override
+            public void run() {
+                database.loadFromFile();
+            }
+        };
+        Thread thread3 = new Thread(runnable3);
+        thread3.start();
+        try {
+            thread1.join();
+            thread3.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     // Wyświetlanie wyników wyszukiwania w polu tekstowym
