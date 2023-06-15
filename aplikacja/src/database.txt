@@ -1,6 +1,0 @@
-BMW,X5,2022
-Chevrolet,Camaro,2003
-peugeot,208,2019
-bmw,seria 1,2014
-volvo,xc90,2018
-toyota,supra,1990
