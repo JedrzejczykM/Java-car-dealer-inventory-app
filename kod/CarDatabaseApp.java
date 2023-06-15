@@ -24,7 +24,7 @@ public class CarDatabaseApp extends JFrame {
 
     public CarDatabaseApp() {
         super("Baza Danych Samochodów");
-        database = new CarDatabase("C:\\Users\\Michał\\Desktop\\STUDIA\\4 SEM\\PROO\\projekt\\kod\\database.txt");
+            database = new CarDatabase("C:\\Users\\Michał\\Desktop\\STUDIA\\4 SEM\\PROO\\projekt\\kod\\database.txt");
         Runnable runnable1 = new Runnable() {
             @Override
             public void run() {
