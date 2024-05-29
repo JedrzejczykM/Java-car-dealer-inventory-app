@@ -1,4 +1,4 @@
-# Projekt Proo
+# Project Proo
 
 Java app for monitoring vehicles in stock that I have made during studies.
 <br>
