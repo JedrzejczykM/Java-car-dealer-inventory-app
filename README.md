@@ -6,5 +6,3 @@ This app allows you to add vehicle to data base, the vehicle has its own artibut
 
 ## Project Structure:
 - *kod* - directory that keeps source files
-- *Sprecyfikacja_Projektu_PROO.pdf* - project specification at the beginning
-- *PROO projekt dokumentacja.pdf* - project documentation made at the end
